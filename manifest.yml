@@ -1,0 +1,23 @@
+---
+applications:
+  - name: dpnaik-locomotive-predix-seed
+    buildpack: predix_openresty_buildpack
+    path: dist
+    memory: 64M
+    stack: cflinuxfs2
+    services:
+      - dpnaik-redis
+      - dpnaik_locomotive_views
+      - locomotive-asset
+      - locomotive-uaa
+    env:
+      #UAA_SERVER_URL: https://2e93f1db-9f2c-43e9-9fa9-7ba816c8f01c.predix-uaa-training.run.aws-usw02-pr.ice.predix.io # change to your UAA instance url
+      UAA_SERVER_URL: https://19295f08-c6be-42f2-8353-84e32670822b.predix-uaa.run.aws-usw02-pr.ice.predix.io
+      assetUrl: https://predix-asset.run.aws-usw02-pr.ice.predix.io
+      #assetZoneId: 160fbeaf-1e6e-4499-922c-fea0525e548e
+      assetZoneId: 35e60469-c21d-42f8-80fd-bdcbd1dd37e7
+      #predix_oauthClientId: YXNoYS1jbGllbnQ6Y2xpZW50c2VjcmV0
+      predix_oauthClientId: YXBwX2NsaWVudF9pZDphcHBfY2xpZW50X2lk
+      #locomotiveClientUrl: https://locomotive-client-service-student55.run.aws-usw02-pr.ice.predix.io
+      locomotiveClientUrl: https://dpnaik-locomotive-client-service.run.aws-usw02-pr.ice.predix.io
+      REDIS: redis-17
